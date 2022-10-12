@@ -1,62 +1,88 @@
 package com.example.test01_slotmashine;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String getEmojiByUnicode(int unicode){
-        return new String(Character.toChars(unicode));
-    }
-
-    int cherry = 0x1F352;
-    int orange = 0x1F34A;
-    int grapes = 0x1F347;
-
-    int[] fruits = {cherry, orange, grapes};
-
-    private TextView[] cells;
-    private ImageView imageView;
+    CheckLines check = new CheckLines();
+    RandomValue randomFruit = new RandomValue();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);
+        Resources resources = getResources();
+        int placeHolderColor = resources.getColor(R.color.placeHolderColor);
 
-        cells = new TextView[] {
-            findViewById(R.id.textView00),
-            findViewById(R.id.textView01),
-            findViewById(R.id.textView02),
-            findViewById(R.id.textView10),
-            findViewById(R.id.textView11),
-            findViewById(R.id.textView12),
-            findViewById(R.id.textView20),
-            findViewById(R.id.textView21),
-            findViewById(R.id.textView22)
+        Animation blink = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink);
+
+        Button button = findViewById(R.id.runButton);
+
+        TextView lineD1 = findViewById(R.id.textLineDia1);
+        TextView lineD2 = findViewById(R.id.textLineDia2);
+        TextView lineUp = findViewById(R.id.textLineUp);
+        TextView lineCenter = findViewById(R.id.textLineCenter);
+        TextView lineDown = findViewById(R.id.textLineDown);
+
+        TextView roundScoreLabel = findViewById(R.id.roundScoreLabel);
+        TextView roundScore = findViewById(R.id.roundScore);
+        TextView totalScoreLabel = findViewById(R.id.totalScoreLabel);
+        TextView totalScore = findViewById(R.id.totalScore);
+
+        Integer[] cellsIndexes = new Integer[9]; // индексы ячеек
+
+        TextView[] cells = new TextView[] {
+                findViewById(R.id.textView00),findViewById(R.id.textView01),
+                findViewById(R.id.textView02),findViewById(R.id.textView10),
+                findViewById(R.id.textView11),findViewById(R.id.textView12),
+                findViewById(R.id.textView20),findViewById(R.id.textView21),
+                findViewById(R.id.textView22)
         };
 
         button.setOnClickListener(v -> {
+            lineUp.setTextColor(placeHolderColor);
+            lineCenter.setTextColor(placeHolderColor);
+            lineDown.setTextColor(placeHolderColor);
+            lineD1.setTextColor(placeHolderColor);
+            lineD2.setTextColor(placeHolderColor);
 
             for (TextView cell : cells) {
-                int idx = new Random().nextInt(fruits.length);
-                cell.setText(getEmojiByUnicode(fruits[idx]));
+                cell.setShadowLayer(35, 0, 0, Color.TRANSPARENT);
+                cell.clearAnimation();
+
+                ObjectAnimator rotateCell = ObjectAnimator.ofFloat(cell, View.ROTATION_X, 0f, 720f);
+                rotateCell.setInterpolator(new AccelerateDecelerateInterpolator());
+                rotateCell.setDuration(400);
+                rotateCell.start();
+
+                randomFruit.randomValue(cells, cellsIndexes);
+
+                rotateCell.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {}
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        check.checkLines(cells, cellsIndexes, lineUp, lineCenter, lineDown, lineD1, lineD2, blink, roundScore, totalScore);
+                    }
+                    @Override
+                    public void onAnimationCancel(Animator animation) {}
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {}
+                });
             }
         });
-
-        imageView = findViewById(R.id.imageView);
-        setDrawable();
-
-    }
-
-    private void setDrawable() {
-        imageView.setImageResource(R.drawable.shape);
     }
 }
+

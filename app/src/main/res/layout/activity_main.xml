@@ -5,147 +5,230 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:contentDescription="@string/shape"
-        android:scaleType="center" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/roundScoreLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="100dp"
-        android:foregroundGravity="center"
+        android:layout_alignTop="@id/grid"
+        android:layout_alignEnd="@id/grid"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="100dp"
         android:gravity="center"
-        android:stretchColumns="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        android:text="ROUND"
+        android:textColor="#FFEB3B"
+        android:textSize="14sp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false">
-
-            <TextView
-                android:id="@+id/textView00"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:shadowColor="#FF0000"
-                android:shadowRadius="50"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/iconPlaceholder"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="60sp" />
-
-        </TableRow>
-
-    </TableLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="215dp"
+    <TextView
+        android:id="@+id/roundScore"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tableLayout"
-        android:layout_alignEnd="@+id/tableLayout"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@id/grid"
+        android:layout_alignEnd="@id/grid"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="100dp"
+        android:gravity="center"
+        android:text="200"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/totalScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/grid"
+        android:layout_alignEnd="@id/grid"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="TOTAL"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/totalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/grid"
+        android:layout_alignEnd="@id/grid"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="100"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="24sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/runButton"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@id/grid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-60dp"
+        android:backgroundTint="#CE3838"
+        android:elevation="50dp"
         android:text="@string/buttonText"
-        app:cornerRadius="10sp"
-        app:layout_constraintBottom_toTopOf="@id/tableLayout"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="25dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="5dp" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        android:padding="5dp"
+        app:alignmentMode="alignBounds"
+        app:columnCount="4"
+        app:rowCount="5">
+
+        <TextView
+            android:id="@+id/textLineDia1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/D1"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textLineUp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/l1"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView00"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView02"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textLineCenter"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/l2"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textLineDown"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/l3"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="@string/iconPlaceholder"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textLineDia2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/D2"
+            android:textAlignment="center"
+            android:textColor="@color/placeHolderColor"
+            android:textSize="20sp" />
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </RelativeLayout>
