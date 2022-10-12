@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">test01_SlotMashine</string>
+    <string name="buttonText">RUN</string>
+    <string name="iconPlaceholder">+</string>
+    <string name="l1">L1</string>
+    <string name="l2">L2</string>
+    <string name="l3">L3</string>
+    <string name="D1">D1</string>
+    <string name="D2">D2</string>
+</resources>
