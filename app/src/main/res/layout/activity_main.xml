@@ -18,7 +18,7 @@
         android:layout_marginEnd="100dp"
         android:gravity="center"
         android:text="ROUND"
-        android:textColor="#FFEB3B"
+        android:textColor="@color/placeHolderColor"
         android:textSize="14sp" />
 
     <TextView
@@ -30,9 +30,9 @@
         android:layout_marginTop="-30dp"
         android:layout_marginEnd="100dp"
         android:gravity="center"
-        android:text="200"
+        android:text="@string/iconPlaceholder"
         android:textAlignment="center"
-        android:textColor="#FFEB3B"
+        android:textColor="@color/placeHolderColor"
         android:textSize="24sp" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:gravity="center"
         android:text="TOTAL"
         android:textAlignment="center"
-        android:textColor="#FFEB3B"
+        android:textColor="@color/placeHolderColor"
         android:textSize="14sp" />
 
     <TextView
@@ -58,9 +58,9 @@
         android:layout_marginTop="-30dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="100"
+        android:text="@string/iconPlaceholder"
         android:textAlignment="center"
-        android:textColor="#FFEB3B"
+        android:textColor="@color/placeHolderColor"
         android:textSize="24sp" />
 
     <com.google.android.material.button.MaterialButton
@@ -87,7 +87,7 @@
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
         android:padding="5dp"
-        app:alignmentMode="alignBounds"
+        app:alignmentMode="alignMargins"
         app:columnCount="4"
         app:rowCount="5">
 
@@ -98,7 +98,8 @@
             android:text="@string/D1"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_gravity="center" />
 
         <Space
             android:layout_width="wrap_content"
@@ -116,15 +117,16 @@
             android:id="@+id/textLineUp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/l1"
+            android:text="@string/l2"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_gravity="center" />
 
         <TextView
             android:id="@+id/textView00"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -132,8 +134,8 @@
 
         <TextView
             android:id="@+id/textView01"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -141,8 +143,8 @@
 
         <TextView
             android:id="@+id/textView02"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -152,15 +154,16 @@
             android:id="@+id/textLineCenter"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/l2"
+            android:text="@string/l3"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_gravity="center" />
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -168,8 +171,8 @@
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -177,8 +180,8 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -191,12 +194,13 @@
             android:text="@string/l3"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_gravity="center" />
 
         <TextView
             android:id="@+id/textView20"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -204,8 +208,8 @@
 
         <TextView
             android:id="@+id/textView21"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -213,8 +217,8 @@
 
         <TextView
             android:id="@+id/textView22"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:text="@string/iconPlaceholder"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
@@ -224,10 +228,11 @@
             android:id="@+id/textLineDia2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/D2"
+            android:text="@string/D1"
             android:textAlignment="center"
             android:textColor="@color/placeHolderColor"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_gravity="center" />
 
     </androidx.gridlayout.widget.GridLayout>
 

@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     CheckLines check = new CheckLines();
     RandomValue randomFruit = new RandomValue();
+    int totalS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Resources resources = getResources();
+
         int placeHolderColor = resources.getColor(R.color.placeHolderColor);
+        int background = resources.getColor(R.color.background);
 
         Animation blink = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink);
 
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         Integer[] cellsIndexes = new Integer[9]; // индексы ячеек
 
+
+
         TextView[] cells = new TextView[] {
                 findViewById(R.id.textView00),findViewById(R.id.textView01),
                 findViewById(R.id.textView02),findViewById(R.id.textView10),
@@ -57,31 +62,53 @@ public class MainActivity extends AppCompatActivity {
             lineDown.setTextColor(placeHolderColor);
             lineD1.setTextColor(placeHolderColor);
             lineD2.setTextColor(placeHolderColor);
+            roundScore.setTextColor(placeHolderColor);
+            roundScoreLabel.setTextColor(background);
+            totalScoreLabel.setTextColor(background);
+
+            totalS += check.roundS/9;
 
             for (TextView cell : cells) {
+                check.roundS = 0;
+
                 cell.setShadowLayer(35, 0, 0, Color.TRANSPARENT);
                 cell.clearAnimation();
+                ObjectAnimator rotateCell = ObjectAnimator.ofFloat(cell, View.ROTATION_X, 0f, 1440f);
 
-                ObjectAnimator rotateCell = ObjectAnimator.ofFloat(cell, View.ROTATION_X, 0f, 720f);
                 rotateCell.setInterpolator(new AccelerateDecelerateInterpolator());
-                rotateCell.setDuration(400);
+                rotateCell.setDuration(600);
                 rotateCell.start();
 
                 randomFruit.randomValue(cells, cellsIndexes);
 
                 rotateCell.addListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart(Animator animation) {}
+                    public void onAnimationStart(Animator animation) {
+
+                    }
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        check.checkLines(cells, cellsIndexes, lineUp, lineCenter, lineDown, lineD1, lineD2, blink, roundScore, totalScore);
+                        check.checkLines(cells, cellsIndexes, lineUp, lineCenter, lineDown, lineD1, lineD2, blink);
+
+                        roundScore.setText(String.valueOf(check.roundS/9));
+                        totalScore.setText(String.valueOf(totalS));
+
+                        if (check.roundS != 0) {
+                            roundScore.setTextColor(Color.YELLOW);
+                        }
+                        if (totalS != 0) {
+                            totalScore.setTextColor(Color.CYAN);
+                        }
+
                     }
                     @Override
                     public void onAnimationCancel(Animator animation) {}
                     @Override
                     public void onAnimationRepeat(Animator animation) {}
                 });
+
             }
+
         });
     }
 }
